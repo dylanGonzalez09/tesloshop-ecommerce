@@ -19,12 +19,8 @@ interface Props {
 
 export const ProductMobileSlideshow = ({ images, title, className }: Props) => {
   return (
-    <div className={className}>
+    <div className={`${className}`}>
       <Swiper
-        style={{
-          width: "100vh",
-          height: "500px",
-        }}
         pagination
         autoplay={{
           delay: 2500,
