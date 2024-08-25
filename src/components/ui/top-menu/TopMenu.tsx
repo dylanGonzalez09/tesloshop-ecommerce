@@ -1,11 +1,11 @@
-"use client";
-import { titleFont } from "@/config/fonts";
-import { useUIStore } from "@/store";
-import Link from "next/link";
-import { IoCartOutline, IoSearchOutline } from "react-icons/io5";
+"use client"
+import { titleFont } from "@/config/fonts"
+import { useUIStore } from "@/store"
+import Link from "next/link"
+import { IoCartOutline, IoSearchOutline } from "react-icons/io5"
 
 export const TopMenu = () => {
-  const openSideMenu = useUIStore((state) => state.openSideMenu);
+  const openSideMenu = useUIStore((state) => state.openSideMenu)
 
   return (
     <nav className="flex px-5 justify-between items-center w-full">
@@ -21,19 +21,19 @@ export const TopMenu = () => {
       {/* Center menu */}
       <div className="hidden sm:block">
         <Link
-          href="/category/men"
+          href="/gender/men"
           className="m-2 p-2 rounded-md transition-all hover:bg-gray-100"
         >
           Hombres
         </Link>
         <Link
-          href="/category/women"
+          href="/gender/women"
           className="m-2 p-2 rounded-md transition-all hover:bg-gray-100"
         >
           Mujeres
         </Link>
         <Link
-          href="/category/kid"
+          href="/gender/kid"
           className="m-2 p-2 rounded-md transition-all hover:bg-gray-100"
         >
           Kids
@@ -57,12 +57,12 @@ export const TopMenu = () => {
         <button
           className="m-2 p-2 rounded-md transition-all hover:bg-gray-100"
           onClick={() => {
-            openSideMenu();
+            openSideMenu()
           }}
         >
           Menu
         </button>
       </div>
     </nav>
-  );
-};
+  )
+}
