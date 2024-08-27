@@ -1,12 +1,12 @@
-"use server"
+"use server";
 
-import prisma from "@/lib/prisma"
-import { Gender } from "@prisma/client"
+import prisma from "@/lib/prisma";
+import { Gender } from "@prisma/client";
 
 interface PaginationOptions {
-  page?: number
-  take?: number
-  gender?: Gender
+  page?: number;
+  take?: number;
+  gender?: Gender;
 }
 
 export const getPaginatedProductWithImages = async ({
@@ -14,11 +14,9 @@ export const getPaginatedProductWithImages = async ({
   take = 12,
   gender,
 }: PaginationOptions) => {
-  if (isNaN(Number(page))) page = 1
-  if (isNaN(Number(take))) take = 12
-  if (page < 1) page = 1
-
-  console.log(gender)
+  if (isNaN(Number(page))) page = 1;
+  if (isNaN(Number(take))) take = 12;
+  if (page < 1) page = 1;
 
   try {
     const products = await prisma.product.findMany({
@@ -35,14 +33,14 @@ export const getPaginatedProductWithImages = async ({
       where: {
         gender,
       },
-    })
+    });
 
     const totalCount = await prisma.product.count({
       where: {
         gender,
       },
-    })
-    const totalPages = Math.ceil(totalCount / take)
+    });
+    const totalPages = Math.ceil(totalCount / take);
 
     return {
       currentPage: page,
@@ -51,8 +49,8 @@ export const getPaginatedProductWithImages = async ({
         ...product,
         images: product.ProductImage.map((image) => image.url),
       })),
-    }
+    };
   } catch (error) {
-    throw new Error("No se pudieron cargar los productos")
+    throw new Error("No se pudieron cargar los productos");
   }
-}
+};
