@@ -30,8 +30,6 @@ export async function login(email: string, password: string) {
       ok: true,
     };
   } catch (error) {
-    console.log({ error });
-
     return {
       ok: false,
       message: "No se pudo iniciar sesion",
