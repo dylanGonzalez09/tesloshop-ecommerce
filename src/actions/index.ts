@@ -13,3 +13,8 @@ export { getOrderById } from "./order/get-order-by-id";
 export { getOrdersByUser } from "./order/get-orders-by-user";
 export { setTransactionId } from "./payments/set-transaction-id";
 export { paypalCheckPayment } from "./payments/paypal-check-payment";
+export { getPaginatedOrders } from "./order/get-paginated-orders";
+export { getpaginatedUsers } from "./user/get-paginated-users";
+export { changeUserRole } from "./user/change-user-role";
+export { getCategories } from "./category/get-categories";
+export { createUpdateProduct } from "./product/create-update-product";
