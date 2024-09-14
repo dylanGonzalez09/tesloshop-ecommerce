@@ -1,23 +1,21 @@
-export const revalidate = 10080
+export const revalidate = 10080;
 
-import { notFound } from "next/navigation"
+import { notFound } from "next/navigation";
 
-import { titleFont } from "@/config/fonts"
+import { titleFont } from "@/config/fonts";
 import {
   ProductMobileSlideshow,
   ProductSlideshow,
-  QuantitySelector,
-  SizeSelector,
   StockLabel,
-} from "@/components"
-import { getProductBySlug } from "@/actions"
-import { Metadata, ResolvingMetadata } from "next"
-import { AddToCart } from "./ui/AddToCart"
+} from "@/components";
+import { getProductBySlug } from "@/actions";
+import { Metadata, ResolvingMetadata } from "next";
+import { AddToCart } from "./ui/AddToCart";
 
 interface Props {
   params: {
-    slug: string
-  }
+    slug: string;
+  };
 }
 
 // metadata
@@ -25,9 +23,9 @@ export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const slug = params.slug
+  const slug = params.slug;
 
-  const product = await getProductBySlug(slug)
+  const product = await getProductBySlug(slug);
 
   // optionally access and extend (rather than replace) parent metadata
   // const previousImages = (await parent).openGraph?.images || [];
@@ -41,16 +39,16 @@ export async function generateMetadata(
       // images: ["/some-specific-page-image.jpg", ...previousImages],
       images: [`/products/${product?.images[1]}`],
     },
-  }
+  };
 }
 
 export default async function page({ params }: Props) {
-  const { slug } = params
+  const { slug } = params;
 
-  const product = await getProductBySlug(slug)
+  const product = await getProductBySlug(slug);
 
   if (!product) {
-    notFound()
+    notFound();
   }
 
   return (
@@ -88,5 +86,5 @@ export default async function page({ params }: Props) {
         <p className="font-light">{product.description}</p>
       </div>
     </div>
-  )
+  );
 }
