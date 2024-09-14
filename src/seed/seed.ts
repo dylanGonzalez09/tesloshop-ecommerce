@@ -35,8 +35,8 @@ export const initialData: SeedData = {
   countries: countries,
   users: [
     {
-      email: "dylan@gmail.com",
-      name: "Dylan",
+      email: "antonio@gmail.com",
+      name: "Antonio",
       password: bcryptjs.hashSync("123456"),
       role: "admin",
     },

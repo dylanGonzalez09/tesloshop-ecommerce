@@ -19,7 +19,7 @@ export const ProductsInCart = () => {
     }
 
     setLoaded(true);
-  }, []);
+  }, [getTotalItems, router]);
 
   if (!loaded) {
     return <p>Loading...</p>;
