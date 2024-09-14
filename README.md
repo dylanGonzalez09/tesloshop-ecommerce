@@ -12,4 +12,24 @@
 6. Ejecutar seed `npm run seed`
 7. Correr el proyecto `npm run dev`
 
-## Correr en produccion
+## Usuarios por defecto para autenticar
+
+email: antonio@gmail.com,
+
+name: Antonio,
+
+password: 123456,
+
+role: admin,
+
+##
+      
+email: melisa@gmail.com,
+
+name: Melisa,
+
+password: 123456,
+
+role: user,    
+##
+
